@@ -4,7 +4,7 @@ const userController = require('../controllers/userController');
 
 router.post('/sign-up',userController.signUp);
 router.post('/sign-in',userController.signIn);
-router.get('/all',userController.verifyAuthentication,userController.getAllUser);
+router.get('/all',userController.getAllUser);
 
 
 router.get('/getUserByEmail/:email',userController.verifyAuthentication,userController.getUserByEmail);

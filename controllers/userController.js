@@ -6,6 +6,8 @@ const createToken = (id) => {
   return jwt.sign(id, '12234444', { expiresIn: 86400 });
 }
 
+//Sign-Up---
+
 module.exports.signUp = async (req,res) => {
   const {name, email, password} = req.body;
   const user = await User.findOne({email: email});
@@ -24,6 +26,7 @@ module.exports.signUp = async (req,res) => {
   });
 }
 
+// Sign-In --
 module.exports.signIn = async (req,res) => {
   const {email, password} = req.body;
   const user = await User.findOne({email});
@@ -49,7 +52,7 @@ module.exports.signIn = async (req,res) => {
   });
 }
 
-
+// Get All Users---
 module.exports.getAllUser = async(req, res) => {
   const user = await User.find();
   return res.status(200).json({
@@ -58,6 +61,7 @@ module.exports.getAllUser = async(req, res) => {
   })
 }
 
+//Get All Users By Email---
 module.exports.getUserByEmail = async(req, res) => {
   const user = await User.findOne({
     email:req.params.email
@@ -77,6 +81,7 @@ module.exports.getUserByEmail = async(req, res) => {
   
 };
 
+// Delete User --
 module.exports.deleteUser = async(req, res) => {
   const user = await User.findByIdAndDelete(
     req.userId
@@ -96,7 +101,7 @@ module.exports.deleteUser = async(req, res) => {
   
 };
 
-
+// Change-Password---
 module.exports.passwordChange = async(req, res) => {
   const user = await User.findOne({_id:req.userId})
   if(!user) {
@@ -121,7 +126,7 @@ module.exports.passwordChange = async(req, res) => {
   
 };
 
-
+// Change Email ID ---
 module.exports.changeEmail = async(req, res) => {
   const user = await User.findOne({_id:req.params.id})
   if(!user) {
@@ -138,6 +143,7 @@ module.exports.changeEmail = async(req, res) => {
   })
   
 };
+
 
 module.exports.verifyAuthentication = (req,res,next) => {
   const token = req.headers['x-access-token'];
