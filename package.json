@@ -4,7 +4,7 @@
   "description": "learning nodejs",
   "main": "index.js",
   "scripts": {
-    "test": "NODE_ENV=test mocha -u bdd-lazy-var/global --recursive --exit",
+    "test": "mocha --timeout 10000 --exit",
     "start": "nodemon index.js"
   },
   "author": "ujjwal suman",
