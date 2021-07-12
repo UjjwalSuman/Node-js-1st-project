@@ -19,3 +19,5 @@ app.listen(port, (err) => {
   // eslint-disable-next-line no-console
   console.log(`server is running on port : ${port}`);
 });
+
+module.exports = app;
