@@ -4,7 +4,7 @@
   "description": "learning nodejs",
   "main": "index.js",
   "scripts": {
-    "test": "mocha --timeout 60000 --exit",
+    "test": "mocha --timeout 15000 --exit",
     "start": "nodemon index.js"
   },
   "author": "ujjwal suman",
